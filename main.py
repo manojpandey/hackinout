@@ -17,12 +17,27 @@ app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = 'zi-t\xaa\xc7\xf0.\xdb\xc3\xed\xc0}$\xbaL\xa1\xa6\xb1\xd5'
 
 @app.route('/')
+@app.route('/index.html', methods=['GET','POST'])
 def main():
     return render_template('index.html')
 
+@app.route('/login.html', methods=['GET'])
 @app.route('/login', methods=['GET'])
+
 def login():
     return render_template('login.html')
+
+
+@app.route('/signup.html', methods=['GET'])
+@app.route('/signup', methods=['GET'])
+def signup():
+    return render_template('signup.html')
+
+
+@app.route('/view.html', methods=['GET'])
+@app.route('/view', methods=['GET'])
+def view():
+    return render_template('view.html', answer = 'query123')
 
 @app.route('/qa', methods=['GET'])
 def ques():
