@@ -5,5 +5,5 @@ HackInOut 2.0 @ NIT Surat
 
 - [Manoj Pandey](http://github.com/manojpandey)
 - [Akul Mehra](http://github.com/akul08)
-- [Abhinav Sharma](http://github.com/exc0d3)
+- [Abhinav Sharma](http://github.com/Exc0d3)
 
