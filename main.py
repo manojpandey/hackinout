@@ -19,6 +19,10 @@ app.config['SECRET_KEY'] = 'zi-t\xaa\xc7\xf0.\xdb\xc3\xed\xc0}$\xbaL\xa1\xa6\xb1
 def main():
 	return render_template('index.html')
 
+@app.route('/login', methods=['GET'])
+def login():
+	return render_template('login.html')
+
 # When developing locally, this will use port 5000, 
 # in production Heroku will set the PORT environment variable.
     
