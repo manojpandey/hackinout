@@ -24,24 +24,25 @@ def main():
 def login():
     return render_template('login.html')
 
+@app.route('/qa', methods=['GET'])
+def ques():
+    return render_template('qa.html')
 
-@app.route('/calldata',method=['GET','POST'])
+@app.route('/experts', methods=['GET'])
+def experts():
+    return render_template('experts.html')
+
+@app.route('/calldata', methods=['GET','POST'])
 def call():
-
     client = Exotel('non56','eedaef1428bfc46e254134be41cd5380b85ccc56')
-
     from_num = "%011d"% (9560894192) 
     call_id  = "%011d"% (9243422233)
-
-
     x  = client.call_flow(from_num,call_id,(56743))
     print x
+    return render_template('data.html')
 
 # When developing locally, this will use port 5000, 
-# in production Heroku will set the PORT environment variable.
-
-
-    
+# in production Heroku will set the PORT environment variable.    
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
