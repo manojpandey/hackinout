@@ -42,6 +42,11 @@ def signup():
 def view():
     return render_template('view.html', answer = 'query123')
 
+@app.route('/submit.html', methods=['GET'])
+@app.route('/submit', methods=['GET'])
+def submit():
+    return render_template('submit-ans.html')
+
 @app.route('/qa', methods=['GET'])
 def ques():
 
