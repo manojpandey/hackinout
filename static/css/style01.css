@@ -98,7 +98,7 @@ ul.twitter li{
 	font-size:1em;
 	float: left;
 	margin-top: 5px;
-	margin-left: 110px;
+	margin-left: 190px;
 }
 ul.twitter:hover{
 	background: #71B8ED;
@@ -112,7 +112,7 @@ span.term a:hover{
 }
 
 #query{
-	width: 395px;
+	width: 595px;
 }
 .lable input[type="text"] {
 	padding: 15px;
