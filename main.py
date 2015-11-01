@@ -47,7 +47,13 @@ def ques():
 
     return render_template('qa.html')
 
-@app.route('/experts', methods=['GET'])
+@app.route('/viewqa', methods=['GET'])
+def viewqa():
+    return render_template('view-qa.html')
+
+@app.route('/viewqasked', methods=['GET'])
+def viewqasked():
+    return render_template('view-qa-asked.html')
 
 def show_posts():
     posts = []
