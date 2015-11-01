@@ -14,7 +14,7 @@ import requests
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SECRET_KEY'] = 'zi-t\xaa\xc7\xf0.\xdb\xc3\xed\xc0}$\xbaL\xa1\xa6\xb1\xd5'
+app.config['SECRET_KEY'] = 'I\xee\x05\xe2\x05}\xd8\x06P\xe7\xc2\n\xa2Y\xf0'
 
 @app.route('/')
 @app.route('/index.html', methods=['GET','POST'])
@@ -25,6 +25,7 @@ def main():
 @app.route('/login', methods=['GET'])
 
 def login():
+    
     return render_template('login.html')
 
 
@@ -41,10 +42,12 @@ def view():
 
 @app.route('/qa', methods=['GET'])
 def ques():
+
     return render_template('qa.html')
 
 @app.route('/experts', methods=['GET'])
 def experts():
+    
     return render_template('experts.html')
 
 @app.route('/calldata', methods=['GET','POST'])
@@ -69,4 +72,3 @@ if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-
