@@ -59,7 +59,7 @@ def show_posts():
     return render_template('show_posts.html', posts=posts)
 
 
-@app.route('/calldata', methods=['GET','POST'])
+@app.route('/call', methods=['GET','POST'])
 def call():
 	base = "https://non56:eedaef1428bfc46e254134be41cd5380b85ccc56@twilix.exotel.in/v1/Accounts/non56/Calls/connect"
 	from_num = "%011d"% (9560894192) 
@@ -68,11 +68,15 @@ def call():
             'From': from_num,
             'CallerId': call_id,
             'Url': "http://my.exotel.in/exoml/start/56743",
-            'StatusCallback':' http://a0efa731.ngrok.io/calldata'
+            'StatusCallback': 'http://3f0cd17e.ngrok.io/calldata'
     }
 
 	x  = requests.post(base,data)
 	print x
+	return render_template('data.html')
+
+@app.route('/calldata', methods=['GET', 'POST'])
+def callback():
 	return render_template('data.html')
 
 # When developing locally, this will use port 5000, 
