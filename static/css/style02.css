@@ -478,6 +478,7 @@ input[type=submit] {
 .myalignment{
 	display: table-cell;
 	vertical-align: middle;
+	width: 570px;
 }
 
 
