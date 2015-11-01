@@ -14,7 +14,9 @@ import requests
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SECRET_KEY'] = 'I\xee\x05\xe2\x05}\xd8\x06P\xe7\xc2\n\xa2Y\xf0'
+app.config['SECRET_KEY'] = '6d4c14c8e3d89221cb470b0b2f03e044'
+app.config['STORMPATH_API_KEY_FILE'] = 'apiKey.properties'
+app.config['STORMPATH_APPLICATION'] = 'hackinout'
 
 @app.route('/')
 @app.route('/index.html', methods=['GET','POST'])
@@ -46,9 +48,16 @@ def ques():
     return render_template('qa.html')
 
 @app.route('/experts', methods=['GET'])
-def experts():
-    
-    return render_template('experts.html')
+
+def show_posts():
+    posts = []
+    for account in stormpath_manager.application.accounts:
+        if account.custom_data.get('posts'):
+            posts.extend(account.custom_data['posts'])
+
+    posts = sorted(posts, key=lambda k: k['date'], reverse=True)
+    return render_template('show_posts.html', posts=posts)
+
 
 @app.route('/calldata', methods=['GET','POST'])
 def call():
@@ -59,7 +68,7 @@ def call():
             'From': from_num,
             'CallerId': call_id,
             'Url': "http://my.exotel.in/exoml/start/56743",
-            'StatusCallback':'http://localhost:5000/calldata'
+            'StatusCallback':' http://a0efa731.ngrok.io/calldata'
     }
 
 	x  = requests.post(base,data)
