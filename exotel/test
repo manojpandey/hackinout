@@ -3,3 +3,7 @@ https://non56:eedaef1428bfc46e254134be41cd5380b85ccc56@twilix.exotel.in/v1/Accou
 https://non56:eedaef1428bfc46e254134be41cd5380b85ccc56@twilix.exotel.in/v1/Accounts/non56/Calls/connect.json?From=09910089606&CallerId=09243422233&CallType="trans"&Url="http://my.exotel.in/exoml/start/56743"
 **/
 x
+
+Call details API Request
+
+https://non56:eedaef1428bfc46e254134be41cd5380b85ccc56@twilix.exotel.in/v1/Accounts/non56/Calls/<CallSid>
