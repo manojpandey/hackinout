@@ -56,9 +56,22 @@ def ques():
 def viewqa():
     return render_template('view-qa.html')
 
-@app.route('/viewqasked', methods=['GET'])
+@app.route('/viewqasked', methods=['GET', 'POST'])
 def viewqasked():
+    base = "https://non56:eedaef1428bfc46e254134be41cd5380b85ccc56@twilix.exotel.in/v1/Accounts/non56/Calls/connect"
+    from_num = "%011d"% (9560894192) 
+    call_id  = "%011d"% (9243422233)
+    data = {
+            'From': from_num,
+            'CallerId': call_id,
+            'Url': "http://my.exotel.in/exoml/start/56743",
+            'StatusCallback': 'http://3f0cd17e.ngrok.io/calldata'
+    }
+
+    x  = requests.post(base,data)
+    print x
     return render_template('view-qa-asked.html')
+
 
 def show_posts():
     posts = []
@@ -70,21 +83,21 @@ def show_posts():
     return render_template('show_posts.html', posts=posts)
 
 
-@app.route('/call', methods=['GET','POST'])
-def call():
-	base = "https://non56:eedaef1428bfc46e254134be41cd5380b85ccc56@twilix.exotel.in/v1/Accounts/non56/Calls/connect"
-	from_num = "%011d"% (9560894192) 
-	call_id  = "%011d"% (9243422233)
-	data = {
-            'From': from_num,
-            'CallerId': call_id,
-            'Url': "http://my.exotel.in/exoml/start/56743",
-            'StatusCallback': 'http://3f0cd17e.ngrok.io/calldata'
-    }
+# @app.route('/call', methods=['GET','POST'])
+# def call():
+# 	base = "https://non56:eedaef1428bfc46e254134be41cd5380b85ccc56@twilix.exotel.in/v1/Accounts/non56/Calls/connect"
+# 	from_num = "%011d"% (9560894192) 
+# 	call_id  = "%011d"% (9243422233)
+# 	data = {
+#             'From': from_num,
+#             'CallerId': call_id,
+#             'Url': "http://my.exotel.in/exoml/start/56743",
+#             'StatusCallback': 'http://3f0cd17e.ngrok.io/calldata'
+#     }
 
-	x  = requests.post(base,data)
-	print x
-	return render_template('data.html')
+# 	x  = requests.post(base,data)
+# 	print x
+# 	return render_template('view-qa-asked.html')
 
 @app.route('/calldata', methods=['GET', 'POST'])
 def callback():
