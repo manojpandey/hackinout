@@ -52,7 +52,7 @@ def ques():
 
     return render_template('qa.html')
 
-@app.route('/viewqa', methods=['GET'])
+@app.route('/viewqa', methods=['GET', 'POST'])
 def viewqa():
     return render_template('view-qa.html')
 
